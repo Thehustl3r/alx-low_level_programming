@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "failed" > ${CFILE%.}.o
+gcc -S $CFILE > 1-main.o
