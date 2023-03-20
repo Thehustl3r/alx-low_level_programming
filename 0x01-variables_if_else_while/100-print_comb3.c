@@ -39,17 +39,19 @@ int main(void)
 /**
  * pint - function to print intefer 
  * Return: - always reurn integers
+ * num: - jsjd
  */
 void pint(int num)
 {
-	if(num/10)
-	pint(num/10);	
+	if (num / 10)
+	pint(num / 10);	
 	putchar(num % 10 + '0');
 }
 /**
- * concatenate - function to concatenate integer 
+ * concatenate - function to concatenate integer
  * Return: - always return concatenation
- * 
+ * x: 
+ * y - sa
  */
 int concatenate(int x, int y)
 {
