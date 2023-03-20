@@ -14,7 +14,7 @@ int main(void)
 		if (i < 10)
 			putchar('0' + i + ',' + ' ');*/
 		if (i != 89)
-			putchar(i);
+			putchar('0' + i);
 	}
 	putchar('\n');
 	return (0);
