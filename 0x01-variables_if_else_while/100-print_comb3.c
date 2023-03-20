@@ -19,7 +19,7 @@ int main(void)
 
 	for (i = 0; i <= 9; i++)
 	{
-		for (j = i++; j <=9; j++)
+		for (j = i + 1; j <= 9; j++)
 		{
 			num[n] = concatenate(i, j);
 			n++;
@@ -37,13 +37,20 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
-/* pint - function to print intefer */
-void pint(int num)
+/**
+ * pint - function to print intefer 
+ * Return: - always reurn integers
+ * */
+void pint (int num)
 {  
 	if(num/10)
 	pint(num/10);	
-	putchar(num%10 + '0' );						 }
-/* concatenate - function to concatenate integer */
+	putchar(num % 10 + '0');
+}
+/**
+ * concatenate - function to concatenate integer 
+ * Return - always return concatenation
+ */
 int concatenate (int x, int y)
 {
 	int pow = 10;
