@@ -46,13 +46,10 @@ void pint(int num)
 /* concatenate - function to concatenate integer */
 int concatenate (int x, int y)
 {
-	char s1[3];
-	char s2[3];
-
-	sprintf(s1, "%d", x);
-	sprintf(s2, "%d", y);
-
-	strcat(s1, s2);
-
-	return atoi(s1);
+	int pow = 10;
+    
+	while (y > 10)
+	       pow *= 10;
+    
+	return x * pow + y;
 }
