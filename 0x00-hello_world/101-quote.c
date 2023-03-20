@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /* Function-declaration */
-void display();
+void display(void);
 /**
  * main - Entry point
  * Return: Always 1 (Success)
@@ -9,10 +9,10 @@ void display();
 int main(void)
 {
 	display();
-	
-	return 1;
+	return (1);
 }
-void display()
+/*Function-initialization*/
+void display (void)
 {
 	char name[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 	int i;
@@ -22,4 +22,5 @@ void display()
 	{
 		putchar (name[i]);
 	}
+	putchar ('\n');
 }
