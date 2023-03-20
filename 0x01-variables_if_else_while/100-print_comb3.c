@@ -7,12 +7,12 @@
 int main(void)
 {
 	int i;
-	for (i = '1'; i <= '89'; i++)
+	for (i = '1'; i <= 89; i++)
 	{
 		if (i < 10)
-			putchar(i == 1 ? ('0' + i + ',') : (' ' + '0' + i + ','));
-		else
-			putchar(' ' + i + ',');
+			putchar('0' + i + ',' + ' ');
+		else if (i != 89)
+			putchar(i + ',' + ' ');
 	}
 	putchar('\n');
 	return (0);
