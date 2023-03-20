@@ -1,4 +1,5 @@
 #include <stdio.h>
+void pint(int num);
 
 /**
  * main - Entry function
@@ -10,12 +11,24 @@ int main(void)
 
 	for (i = 1; i <= 89; i++)
 	{
-		/*
+
 		if (i < 10)
-			putchar('0' + i + ',' + ' ');*/
-		if (i != 89)
-			int putchar(i);
+			putchar('0');
+
+		putchar(',');
+		putchar(' ');
 	}
 	putchar('\n');
 	return (0);
 }
+void pint(int num)
+	    {  
+		                if(num/10)
+					                pint(num/10);
+				                
+				        putchar(num%10 + '0' );
+					        
+					        
+					        
+					        
+					    }
