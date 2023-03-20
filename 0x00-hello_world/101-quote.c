@@ -19,7 +19,7 @@ void display()
 
 	for (int i = 0; i < name.length; i++)
 	{
-		putchar ("%s",name[i]);
+		putchar (name[i]);
 	}
 
 	putchar ("\n");
