@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Function-declaration */
+void display();
 /**
  * main - Entry point
  * Return: Always 1 (Success)
