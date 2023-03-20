@@ -10,7 +10,7 @@ int main(void)
 	for (i = 1; i <= 89; i++)
 	{
 		if (i < 10)
-			putchar(i == 1 ? ('0' + i): (' 0' + i));
+			putchar(i == 1 ? ('0' + i): (' ' + '0' + i));
 		else
 			putchar(' ' + i);
 	}
