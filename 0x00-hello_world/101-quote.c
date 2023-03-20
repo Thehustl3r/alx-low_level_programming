@@ -16,11 +16,10 @@ int main(void)
 void display()
 {
 	char name[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
+	int i;
 
-	for(int i = 0; i < name.length; i++)
+	for(i = 0; i < name.length; i++)
 	{
 		putchar (name[i]);
 	}
-
-	putchar ("\n");
 }
