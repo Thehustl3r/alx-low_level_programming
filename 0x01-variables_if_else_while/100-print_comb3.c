@@ -17,21 +17,19 @@ int main(void)
 	int num[100];
 	int n = 0;
 
-	 for (i = 0; i <= 9; i++)
+	for (i = 0; i <= 9; i++)
         {
-            for(j = i+1; j <=9; j++)
+            for(j = (i + 1); j <= 9; j++)
             {
-
-                num[n] = concatenate(i,j);
-                n++;
-
+		    num[n] = concatenate(i, j);
+		    n++;
             }
         }
 	for (i = 0; i < 45; i++)
 	{
 		if (num[i] < 10)
 			putchar('0');
-		pint(i);
+		pint(num[i]);
 		putchar(',');
 		putchar(' ');
 	}
