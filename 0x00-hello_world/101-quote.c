@@ -13,7 +13,7 @@ int main(void)
 }
 /**
  * display - display string
- * */
+ */
 void display(void)
 {
 	char name[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
