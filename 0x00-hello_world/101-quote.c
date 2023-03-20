@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /* Function-declaration */
 void display();
@@ -17,8 +16,9 @@ void display()
 {
 	char name[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 	int i;
+	int len = sizeof(name);
 
-	for(i = 0; i < strlen(name); i++)
+	for(i = 0; i < len; i++)
 	{
 		putchar (name[i]);
 	}
