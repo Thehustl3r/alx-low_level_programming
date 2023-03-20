@@ -57,5 +57,5 @@ int concatenate(int x, int y)
 	int pow = 10;
 	while (y > 10)
 		pow *= 10;
-	return (x * pow + y;)
+	return (x * pow + y);
 }
