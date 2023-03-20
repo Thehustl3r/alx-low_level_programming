@@ -11,14 +11,16 @@ int main(void)
 	display();
 	return (1);
 }
-/*Function-initialization*/
-void display (void)
+/**
+ * display - display string
+ * */
+void display(void)
 {
 	char name[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 	int i;
 	int len = sizeof(name);
 
-	for(i = 0; i < len; i++)
+	for (i = 0; i < len - 1; i++)
 	{
 		putchar (name[i]);
 	}
