@@ -17,7 +17,7 @@ void display()
 {
 	char name[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 
-	for (int i = 0; i < name.length; i++)
+	for(int i = 0; i < name.length; i++)
 	{
 		putchar (name[i]);
 	}
