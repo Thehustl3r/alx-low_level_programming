@@ -1,5 +1,8 @@
 #include <stdio.h>
+/* pint - function to print intefer */
 void pint(int num);
+/* concatenate - function to concatenate integer */
+int concatenate(int x, int y);
 
 /**
  * main - Entry function
@@ -7,12 +10,22 @@ void pint(int num);
  */
 int main(void)
 {
-	int i;
+	int i, j;
+	int num[100];
+	int n = 0;
 
-	for (i = 1; i <= 89; i++)
+	for (i = 0; i <= 9; i++)
 	{
+		for (j = i++; j <=9; j++)
+		{
+			num[n] = concatenate(i, j);
+			n++;
+		}
+	}
 
-		if (i < 10)
+	for (i = 0; i < 45; i++)
+	{
+		if (num[i] < 10)
 			putchar('0');
 		pint(i);
 		putchar(',');
@@ -21,14 +34,22 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
+/* pint - function to print intefer */
 void pint(int num)
-	    {  
-		                if(num/10)
-					                pint(num/10);
-				                
-				        putchar(num%10 + '0' );
-					        
-					        
-					        
-					        
-					    }
+{  
+	if(num/10)
+	pint(num/10);	
+	putchar(num%10 + '0' );						 }
+/* concatenate - function to concatenate integer */
+int concatenate (int x, int y)
+{
+	char s1[3];
+	char s2[3];
+
+	sprintf(s1, "%d", x);
+	sprintf(s2, "%d", y);
+
+	strcat(s1, s2);
+
+	return atoi(s1);
+}
