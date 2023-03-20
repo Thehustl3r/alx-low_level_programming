@@ -18,28 +18,32 @@ int main(void)
 	int n = 0;
 
 	for (i = 0; i <= 9; i++)
-        {
-            for(j = (i + 1); j <= 9; j++)
-            {
-		    num[n] = concatenate(i, j);
-		    n++;
-            }
+	{
+		for(j = (i + 1); j <= 9; j++)
+		{
+			num[n] = concatenate(i,j);
+			n++;
+		}
         }
 	for (i = 0; i < 45; i++)
 	{
 		if (num[i] < 10)
 			putchar('0');
 		pint(num[i]);
+
+		if (i != 44)
+		{
 		putchar(',');
 		putchar(' ');
+		}
 	}
 	putchar('\n');
 	return (0);
 }
 /**
- * pint - function to print intefer 
+ * pint - function to print intefer
  * Return: - always reurn integers
- * num: - jsjd
+ * variable num: - jsjd
  */
 void pint(int num)
 {
@@ -50,7 +54,7 @@ void pint(int num)
 /**
  * concatenate - function to concatenate integer
  * Return: - always return concatenation
- * x: 
+ * x:
  * y - sa
  */
 int concatenate(int x, int y)
