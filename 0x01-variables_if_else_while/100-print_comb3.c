@@ -10,9 +10,10 @@ int main(void)
 
 	for (i = 1; i <= 89; i++)
 	{
+		/*
 		if (i < 10)
-			putchar('0' + i + ',' + ' ');
-		else if (i != 89)
+			putchar('0' + i + ',' + ' ');*/
+		if (i != 89)
 			putchar(i + ',' + ' ');
 	}
 	putchar('\n');
