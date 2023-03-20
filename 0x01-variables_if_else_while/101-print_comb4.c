@@ -25,6 +25,7 @@ int main(void)
 			{
 				num[n] = concatenate(i, j, k);
 				n++;
+			}
 		}
 	}
 	for (i = 0; i < 120; i++)
