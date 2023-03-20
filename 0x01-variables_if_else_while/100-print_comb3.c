@@ -42,8 +42,8 @@ int main(void)
 }
 /**
  * pint - function to print intefer
- * Return: - always reurn integers
- * variable num: - jsjd
+ * Return: - always return a long integer
+ * @num: - An integer a
  */
 void pint(int num)
 {
@@ -54,8 +54,8 @@ void pint(int num)
 /**
  * concatenate - function to concatenate integer
  * Return: - always return concatenation
- * int x - dsd
- * int y: - take int
+ * @x: - An integer a
+ * @y: - An integer a
  */
 int concatenate(int x, int y)
 {
