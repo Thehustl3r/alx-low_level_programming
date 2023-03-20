@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 /* pint - function to print intefer */
 void pint(int num);
 /* concatenate - function to concatenate integer */
