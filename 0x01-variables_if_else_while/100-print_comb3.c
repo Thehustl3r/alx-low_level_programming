@@ -14,7 +14,7 @@ int main(void)
 
 		if (i < 10)
 			putchar('0');
-
+		pint(i);
 		putchar(',');
 		putchar(' ');
 	}
