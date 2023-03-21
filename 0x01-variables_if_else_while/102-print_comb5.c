@@ -4,8 +4,6 @@
 
 /* pint - function to print intefer */
 void pint(int num);
-/* concatenate - function to concatenate integer */
-int concatenate(int x, int y);
 
 /**
  * main - Entry function
@@ -14,30 +12,20 @@ int concatenate(int x, int y);
 int main(void)
 {
 	int i, j;
-	int num[10];
-	int num2[100];
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 99; i++)
 	{
-		num[i] = i;
-		for (j = 1; j < 100; j++)
-		{
-			num2[j - 1] = j;
-		}
-	}
-	for (i = 0; i < 10; i++)
-	{
-		for (j = 0; j < 99; j++)
+		for (j = (i + 1); j < 100; j++)
 		{
 			if (i < 10)
 				putchar('0');
 
-			pint(num[i]);
+			pint(i);
 			putchar(' ');
-			if (num2[j] < 10)
+			if (j < 10)
 				putchar('0');
 
-			pint(num2[j]);
+			pint(j);
 			if (!(i == 9 && j == 98))
 			{
 				putchar(',');
@@ -59,18 +47,4 @@ void pint(int num)
 	if (num / 10)
 	pint(num / 10);
 	putchar(num % 10 + '0');
-}
-/**
- * concatenate - function to concatenate integer
- * Return: - always return concatenation
- * @x: - An integer a
- * @y: - An integer a
- */
-int concatenate(int x, int y)
-{
-	int pow = 10;
-
-	while (y > 10)
-		pow *= 10;
-	return (x * pow + y);
 }
