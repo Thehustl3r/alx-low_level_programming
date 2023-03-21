@@ -14,28 +14,39 @@ int concatenate(int x, int y);
 int main(void)
 {
 	int i, j;
-	int num[100];
-	int n = 0;
+	int num[10];
+	int num2[100];
 
-	for (i = 0; i <= 9; i++)
+	for (i = 0; i < 10; i++)
 	{
-		for (j = 0; j <= 9; j++)
+		num[i] = i;
+		for (j = 1; j < 100; j++)
 		{
-			num[n] = concatenate(i, j);
-			n++;
+			num[j - 1] = j;
 		}
 	}
-	for (i = 0; i < 99; i++)
+	for (i = 0; i < 10; i++)
 	{
-		if (num[i] < 10)
-			putchar('0');
-		pint(num[i]);
-
-		if (i != 98)
+		for (j = 0; j < 99; j++)
 		{
-		putchar(',');
-		putchar(' ');
+			if (i < 10)
+				putchar('0');
+
+			pint(num[i]);
+			putchar(' ');
+			
+			if (num2[j] < 10)
+				putchar('0');
+
+			pint(num2[j]);
+			
+			if (!(i == 9 && j == 98))
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
+
 	}
 	putchar('\n');
 	return (0);
