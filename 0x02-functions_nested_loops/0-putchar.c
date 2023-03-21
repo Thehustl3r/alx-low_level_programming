@@ -7,7 +7,7 @@
  */
 void print_alphabet(void)
 {
-	char name[] = '_putchar';
+	char name[] = "_putchar";
 	int i;
 
 	for (i = 0; i <= 7; i++)
