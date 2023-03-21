@@ -26,7 +26,7 @@ int main(void)
 				putchar('0');
 
 			pint(j);
-			if (!(i == 9 && j == 98))
+			if (!(i == 98 && j == 99))
 			{
 				putchar(',');
 				putchar(' ');
