@@ -22,7 +22,7 @@ int main(void)
 		num[i] = i;
 		for (j = 1; j < 100; j++)
 		{
-			num[j - 1] = j;
+			num2[j - 1] = j;
 		}
 	}
 	for (i = 0; i < 10; i++)
@@ -33,7 +33,7 @@ int main(void)
 				putchar('0');
 
 			pint(num[i]);
-			putchar(' ');			
+			putchar(' ');
 			if (num2[j] < 10)
 				putchar('0');
 
