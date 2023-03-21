@@ -33,13 +33,11 @@ int main(void)
 				putchar('0');
 
 			pint(num[i]);
-			putchar(' ');
-			
+			putchar(' ');			
 			if (num2[j] < 10)
 				putchar('0');
 
 			pint(num2[j]);
-			
 			if (!(i == 9 && j == 98))
 			{
 				putchar(',');
