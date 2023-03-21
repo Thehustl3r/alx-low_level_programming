@@ -1,10 +1,16 @@
 #include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: on success 1.
- * on error, -1 is returned, and error is set appropriately.
+ * print_alphabet - Check description
+ * Description: It prints the alphabet in lowercase fallowed by a new line
+ * Return: Nothing.
  */
-print("_putchar");
+void print_alphabet(void)
+{
+	char name[] = '_putchar';
+	int i;
+
+	for (i = 0; i <= 7; i++)
+		_putchar(name[i]);
+	_putchar('\n');
+}
