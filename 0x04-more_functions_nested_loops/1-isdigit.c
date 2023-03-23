@@ -4,15 +4,15 @@
  * main: - entry program
  * _isdigit: - prgram to verify if is int
  * @c: - An integer c
- * Return: - 1 if is int
+ * Return: 1 if c is a digit or 0 otherwise
  */
 
 int _isdigit(int c)
 {
-	int i;
+	char i;
 	int flag = 0;
 
-	for (i = 48; i <= 58; i++)
+	for (i = '0'; i <= '9'; i++)
 	{
 		if (i == c)
 		{
