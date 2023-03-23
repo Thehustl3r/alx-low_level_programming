@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * print_most_numbers - function print int exclude 2 and 4
  * Return: Always 0
  */
 void print_most_numbers(void)
 {
-	int i;
+	int i; 
 
 	for (i = '0'; i <= '9'; i++)
 	{
