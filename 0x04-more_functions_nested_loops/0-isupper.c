@@ -8,7 +8,8 @@ int _isupper(int c)
 {
 	char i;
 	int flag = 0;
-	for (i = 'A'; i <= 'Z'; i++)
+
+	for (i = 'A'; i <= 'z'; i++)
 	{
 		if (i == c)
 		{
