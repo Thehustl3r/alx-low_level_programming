@@ -1,16 +1,17 @@
 #include "main.h"
+
 /**
  * main: - entry program
- * _isupper: - programm tofind uppercase
- * Return: - always 0 (success)
+ * _isdigit: - prgram to verify if is int
  * @c: - An integer c
  */
-int _isupper(int c)
+
+int _isdigit(int c)
 {
-	char i;
+	int i;
 	int flag = 0;
 
-	for (i = 'A'; i <= 'Z'; i++)
+	for (i = 0; i <= 9; i++)
 	{
 		if (c == i)
 			flag = 1;
