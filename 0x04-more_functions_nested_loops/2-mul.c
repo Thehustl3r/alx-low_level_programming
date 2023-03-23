@@ -1,10 +1,10 @@
 #include "main.h"
+
 /**
- * main: - entry program
- * mul: - prgram to verify if is int
- * @a: - An integer c
- * @b: - An integer b
- * Retun: - return a product
+ * mul - a function to find product
+ * @a:  An integer c
+ * @b:  An integer b
+ * Retun:  Always 0
  */
 int mul(int a, int b)
 {
