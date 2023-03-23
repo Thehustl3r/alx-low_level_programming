@@ -7,15 +7,18 @@
  */
 void more_numbers(void)
 {
-	int i = '0';
+	int i = 0;
 	int count = 0;
 
 	while (count < 10)
 	{
-		for (; i <= '14'; i++)
-			_putchar(i);
+		for (; i <= 14; i++)
+		{
+			if (i > 9)
+				_putchar(i / 10 + '0');
+
+			_putchar(i % 10 + '0');
 		_putchar('\n');
 		count ++;
 	}
-	_putchar('\n');
 }
