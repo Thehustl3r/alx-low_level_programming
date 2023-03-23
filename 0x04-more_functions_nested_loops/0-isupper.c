@@ -12,10 +12,9 @@ int _isupper(int c)
 
 	for (i = 'A'; i <= 'Z'; i++)
 	{
-		if (c == i)
+		if (i == c)
 			flag = 1;
 	}
-	_putchar('\n');
 
 	return (flag);
 }
