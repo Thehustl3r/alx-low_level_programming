@@ -1,6 +1,5 @@
 #include "main.h"
 /**
- * _isupper: - programm tofind uppercase
  * @c: An integer c
  * Return: 0 if is uppercase
  */
