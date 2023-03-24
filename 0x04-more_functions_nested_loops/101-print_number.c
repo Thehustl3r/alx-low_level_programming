@@ -2,8 +2,8 @@
 
 /**
  * print_number - Print numbers
- * @n - an integer n
- * Return: 0 always
+ * @n  an integer n
+ * Return: void always
  */
 
 void print_number(int n)
