@@ -29,8 +29,8 @@ int main(void)
  */
 int find_largest_prime_factor(int number)
 {
-	int i = 2;
-	int largest = 0;
+	int i = 1;
+	int largest = 1;
 	int j = 2;
 
 	while (i <= number)
