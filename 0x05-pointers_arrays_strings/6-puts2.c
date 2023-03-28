@@ -9,8 +9,15 @@
 void puts2(char *str)
 {
 	int len = 0;
+	int lenn;
 
 	while (*(str + len) != '\0')
+		len++;
+	len--;
+	lenn = len;
+	len = 0;
+
+	while (len <= lenn)
 	{
 		_putchar(*(str + len));
 		len += 2;
