@@ -1,5 +1,5 @@
 #include "main.h"
-int print(int n);
+void print(int n);
 /**
  * print_array - Function to print array
  * @a: Pointer a
@@ -29,9 +29,9 @@ void print_array(int *a, int n)
  * print - print number
  * @n: Integer a
  *
- * Return: number
+ * Return: Nothing
  */
-int print(int n)
+void print(int n)
 {
 	if (n < 0)
 	{
