@@ -18,10 +18,10 @@ void puts_half(char *str)
 	lenn = len;
 	len = 0;
 
-	while (len <= mid)
+	while (mid <= lenn)
 	{
-		_putchar(*(str + len));
-		len++;
+		_putchar(*(str + mid));
+		mid++;
 	}
 	if (((lenn + 1) % 2 != 0))
 		_putchar(*(str + lenn));
