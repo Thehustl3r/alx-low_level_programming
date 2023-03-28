@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _puts - function to print string
- * @c: char c
+ * @str: char c
  *
  * Return: Nothing
  */
@@ -13,4 +13,5 @@ void _puts(char *str)
 		_putchar(*str);
 		str++;
 	}
+	_putchar('\n');
 }
