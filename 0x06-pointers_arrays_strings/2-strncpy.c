@@ -20,9 +20,10 @@ char *_strncpy(char *dest, char *src, int n)
 		len1++;
 	while (*(src + len2) != '\0')
 		len2++;
-	total = (len2 >= n) ? n : len2;
-	total++;
-
+	if (len2 >= n)
+		total = n;
+	else
+		total = len2
 	while (i < total)
 	{
 		*(dest + i) = *(src + i);
