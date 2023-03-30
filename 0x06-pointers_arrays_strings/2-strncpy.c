@@ -24,7 +24,7 @@ char *_strncpy(char *dest, char *src, int n)
 		total = n;
 	else
 		total = len2;
-	while (i < total)
+	while (i <= total)
 	{
 		*(dest + i) = *(src + i);
 		i++;
