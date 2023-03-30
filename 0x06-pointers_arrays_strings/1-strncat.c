@@ -20,8 +20,11 @@ char *_strncat(char *dest, char *src, int n)
 		len++;
 	while (*(src + len1) != '\0')
 		len1++;
-	(len1 >= n) ? total = len + n : total = len + len1;
-	
+	if (len1 >= n)
+		total = len + n;
+	else
+		total = len + len1;
+
 	while (len < total)
 	{
 		*(dest + len) = *(src + i);
