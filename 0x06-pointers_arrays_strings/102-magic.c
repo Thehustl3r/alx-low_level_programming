@@ -1,9 +1,5 @@
 #include <stdio.h>
-/**
- * main - Entry function
- *
- * Return: 0 Always
- */
+
 int main(void)
 {
   int n;
