@@ -5,28 +5,20 @@
  *
  * Return: character
  */
-char *leet(char *str)
+char *leet(char *s)
 {
-	int len, i;
+	int i = 0, j;
+	char subs[10] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'},
+	     str[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
 
-	len = 0;
-	i = 0;
-
-	while (*(str + len) != '\0')
-		len++;
-	while (i < len)
+	while (s[i])
 	{
-		if (str[i] == 'a' || str[i] == 'A')
-			str[i] = '4';
-		else if (str[i] == 'e' || str[i] == 'E')
-			str[i] = '3';
-		else if (str[i] == 'o' || str[i] == 'O')
-			str[i] = '0';
-		else if (str[i] == 't' || str[i] == 'T')
-			str[i] = '7';
-		else if (str[i] == 'l' || str[i] == 'L')
-			str[i] = '1';
+		for (j = 0; j < 10; j++)
+			if (s[i] == str[j])
+				s[i] = subs[j];
+
 		i++;
 	}
-	return (str);
+
+	return (s);
 }
