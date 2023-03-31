@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * *leet - convert to uppercase
- * @str: a char pointer
+ * @s: a char pointer
  *
  * Return: character
  */
