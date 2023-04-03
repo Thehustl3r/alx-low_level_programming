@@ -10,9 +10,9 @@
 char *_memset(char *s, char b, unsigned int n)
 {
 	int i = 0;
-	int **ptr;
+	int *ptr;
 
-	ptr = &s;
+	ptr = s;
 
 	while (ptr[i] == '\0')
 	{
@@ -20,5 +20,6 @@ char *_memset(char *s, char b, unsigned int n)
 		i++;
 		if (i >= n)
 			break;
-	}	
+	}
+	return (ptr);	
 }
