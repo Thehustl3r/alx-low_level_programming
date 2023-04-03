@@ -10,13 +10,13 @@
 char *_memset(char *s, char b, unsigned int n)
 {
 	int i = 0;
-	int *ptr;
+	int **ptr;
 
-	ptr = s;
+	ptr = &s;
 
-	while (ptr[i] == '\0')
+	while (s[i] == '\0')
 	{
-		ptr[i] = b;
+		s[i] = b;
 		i++;
 		if (i >= n)
 			break;
