@@ -2,7 +2,7 @@
 /**
  * *_memset - Function to fill up the missing integer
  * @s: an pointer s
- * @b: an pointer b 
+ * @b: an pointer b
  * @n: an integer n
  *
  * Return: alwaays char
