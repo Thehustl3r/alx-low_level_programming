@@ -23,6 +23,5 @@ char *_strchr(char *s, char c)
 		}
 		i++;
 	}
-	if (flag)
-		return (s);
+	return (s);
 }
