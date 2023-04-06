@@ -8,7 +8,8 @@
 
 int _strlen_recursion(char *s)
 {
-	char *ptr1 = &s;
+	char *ptr1;
+	ptr1 = &s;
 	char *ptr2 = (char *)(&s + 1) - 1;
 
 	return (ptr2 - ptr1);
