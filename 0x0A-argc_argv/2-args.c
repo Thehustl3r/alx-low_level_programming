@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Entry function to program 
+ * main - Entry function to program
  * @argc: number of agruments
  * @argv: number of the agrument
  *
