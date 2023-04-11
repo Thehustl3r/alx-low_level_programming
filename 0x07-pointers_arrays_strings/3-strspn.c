@@ -24,9 +24,9 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		i++;
 	}
-	flag++;
 	if (!flag)
 		return (0);
+	flag++;
 
 	return (flag);
 }
