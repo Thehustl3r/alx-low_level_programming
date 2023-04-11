@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _strspn - Find character function
- * @s: address of a string
+ * @S: address of a string
  * @accept: the value of the character
  *
  * Return: position of character
@@ -13,19 +13,20 @@ unsigned int _strspn(char *s, char *accept)
 	int flag = 0;
 	int len = 0;
 
-	while (s[i] != '\0')
+	while (s[len] != '\0')
 		len++;
 	while (i < len)
 	{
-		if (s[i] == accept)
+		if (s[i] == *accept)
 		{
-			flag = 1;
+			flag = i;
 			break;
 		}
 		i++;
 	}
+	flag++;
 	if (!flag)
 		return (0);
 
-	return (s[flag]);
+	return (flag);
 }
