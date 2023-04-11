@@ -1,13 +1,31 @@
 #include "main.h"
 /**
- * _strspn - the function that prints the prefix
- * @s: address of the string
- * @accept: a character
+ * _strspn - Find character function
+ * @s: address of a string
+ * @accept: the value of the character
  *
- * Return: number
+ * Return: position of character
  */
 
 unsigned int _strspn(char *s, char *accept)
 {
+	int i = 0;
+	int flag = 0;
+	int len = 0;
 
+	while (s[i] != '\0')
+		len++;
+	while (i < len)
+	{
+		if (s[i] == accept)
+		{
+			flag = 1;
+			break;
+		}
+		i++;
+	}
+	if (!flag)
+		return (0);
+
+	return (s[flag]);
 }
