@@ -25,7 +25,7 @@ char *_strchr(char *s, char c)
 		i++;
 	}
 	if (!flag)
-		return (NULL);
+		return (0);
 
 	return (&s[flag]);
 }
