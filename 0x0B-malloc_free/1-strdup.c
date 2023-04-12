@@ -22,7 +22,7 @@ char *_strdup(char *str)
 
 	if (len == 1)
 	{
-		a[i] = " ";
+		new[0] = " ";
 		return (new);
 	}
 	len--;
