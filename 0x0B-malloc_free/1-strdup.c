@@ -13,9 +13,6 @@ char *_strdup(char *str)
 	int len = 0;
 	int i = 0;
 
-	if (*str == 0)
-		return (0);
-
 	while (str[len] != '\0')
 		len++;
 	len++;
@@ -23,6 +20,11 @@ char *_strdup(char *str)
 		return (0);
 	new = (char *)malloc(len);
 
+	if (len == 1)
+	{
+		a[i] = " ";
+		return (new);
+	}
 	len--;
 	for (; i < len; i++)
 		new[i] = str[i];
