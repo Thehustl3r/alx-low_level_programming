@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "main.h"
 /**
  * *create_array - The function that returns the number of byte of an array
@@ -14,9 +15,12 @@ char *create_array(unsigned int size, char c)
 
 	if (size <= 0)
 		return (0);
+
+	arr = (char *)malloc(size);
+
 	while (i < size)
 	{
-		arr[i] = c;
+		*(arr + i) = c;
 		i++;
 	}
 	return (arr);
