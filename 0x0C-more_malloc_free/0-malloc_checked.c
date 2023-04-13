@@ -9,5 +9,10 @@
 
 void *malloc_checked(unsigned int b)
 {
-	malloc(b);
+	void *str;
+	
+	str = malloc(sizeof(*str) * b);
+	if (str == NULL)
+		exit(98);
+	return (str);
 }
