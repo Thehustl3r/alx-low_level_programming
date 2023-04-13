@@ -30,12 +30,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s1 == NULL && s2 == NULL)
 		return (0);
 
-	for (; i < total; i++)
+	for (; i <= total; i++)
 	{
 		if (i < len1)
 			new[i] = s1[i];
 		else
-			new[i] = s2[i - len1 - 1];
+			new[i] = s2[i - len1];
 	}
 	return (new);
 }
