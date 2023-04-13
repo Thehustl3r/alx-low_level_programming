@@ -16,8 +16,7 @@ char *argstostr(int ac, char **av)
 	if (ac < 3)
 		return (0);
 	new = (char *)malloc(ac * sizeof(char));
-	
-	for (;i < ac; i++)
+	for (; i < ac; i++)
 	{
 		new[i] = *av[i];
 	}
