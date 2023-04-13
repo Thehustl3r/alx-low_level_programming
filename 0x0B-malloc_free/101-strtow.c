@@ -17,7 +17,7 @@ char **strtow(char *str)
 	while (str[len] != '\0')
 		len++;
 
-	new = (char *)malloc(len * sizeof(char));
+	new = (char **)malloc(len * sizeof(char));
 	*new = str;
 	return (new);
 }
