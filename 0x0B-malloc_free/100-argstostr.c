@@ -11,7 +11,6 @@
 char *argstostr(int ac, char **av)
 {
 	int i = 0;
-	int len = 0;
 	char *new;
 
 	if (ac < 3)
@@ -20,8 +19,7 @@ char *argstostr(int ac, char **av)
 	
 	for (;i < ac; i++)
 	{
-		new[i] = av[i];
-		_putchar("\n");
+		new[i] = (char *)av[i];
 	}
 	return (new);
 }
