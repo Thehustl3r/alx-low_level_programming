@@ -11,5 +11,5 @@ char **strtow(char *str)
 {
 	if (*str == '\0')
 		return (0);
-	return (&str);
+	return (**str);
 }
