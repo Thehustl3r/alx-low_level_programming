@@ -26,7 +26,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	while (s1[len2] != '\0')
+	while (s2[len2] != '\0')
 		len2++;
 
 	if (n < len2)
