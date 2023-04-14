@@ -1,24 +1,23 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * simple_print_buffer - the function that store number in array
- * @buffer: the integer
- * @size: the integer size
+ * *array_range - the function that return arrange of number
+ * @min: min number
+ * @max: max number
  *
- * Return: Nothinig
+ * Return: arry
  */
-
-void simple_print_buffer(int *buffer, unsigned int size)
+int *array_range(int min, int max)
 {
 	int *arr;
-	unsigned int min = (unsigned int)*buffer;
 
-	if (*buffer < size)
-		return (0);
-	arr = malloc(sizeof(unsigned int) * (size - min));
+	if (min < max)
+		return (NULL);
+
+	arr = malloc(sizeof(int *) * (max - min));
 	if (arr == NULL)
-		return (0);
-	for (; min <= size; min++}
+		return (NULL);
+	for (; min <= size; min++)
 		*arr = min, arr++;
 	return (arr);
 }
