@@ -38,7 +38,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (new == NULL)
 		return (0);
-
+	total--;
 	for (; i < total; i++)
 	{
 		if (i < len1)
