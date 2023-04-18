@@ -1,7 +1,7 @@
 #include "dog.h"
 #include <stdio.h>
 /**
- * print_dog - Function d
+ * print_dog - function that print struct dog
  * @d: structure dog
  * Return: Nothing
  */
@@ -16,5 +16,4 @@ void print_dog(struct dog *d)
 	printf("Name: %s\n", d->name);
 	printf("Age: %0.6f\n", d->age);
 	printf("Owner: %s\n", d->owner);
-		
 }
