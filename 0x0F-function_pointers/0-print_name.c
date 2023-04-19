@@ -3,6 +3,7 @@
  * print_name - the function to print a string
  * @name: the address of the string
  * @f: the pointer function
+ * Return: Nothing
  */
 
 void print_name(char *name, void (*f)(char *))
