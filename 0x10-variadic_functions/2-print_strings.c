@@ -2,9 +2,10 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- * print_strings the function to print numbers
+ * print_strings - the function to print numbers
  * @separator: the address of separator
- * @n: the number of arguments
+ * @n: the number of argumentsi
+ * @...: other arguments
  * Return: Nothing
  */
 
@@ -16,7 +17,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_start(pi, n);
 	for (; i < n; i++)
 	{
-		printf("%d", va_arg(pi, unsigned int));
+		if (va_arg(pi, char*) == NULL)
+			printf("(nil");
+		else
+			printf("%s", va_arg(pi, char*));
 		if (separator == NULL)
 			continue;
 		if (i != (n - 1))
