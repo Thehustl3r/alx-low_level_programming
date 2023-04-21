@@ -16,11 +16,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_start(pi, n);
 	for (; i < n; i++)
 	{
-		if (separator == NULL)
-			return;
 
 		printf("%d", va_arg(pi, unsigned int));
-		if (separator != NULL && i != (n - 1))
+		if (separator == NULL)
+			continue;
+		if (i != (n - 1))
 			printf("%c ", separator[0]);
 	}
 	va_end(pi);
