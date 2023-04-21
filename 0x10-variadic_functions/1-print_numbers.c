@@ -2,10 +2,9 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- * print-numbers - the function to print numbers
+ * print_numbers - the function to print numbers
  * @separator: the address of separator
  * @n: the number of arguments
- *
  * Return: Nothing
  */
 
@@ -13,7 +12,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i = 0;
 	va_list  pi;
-	
+
 	va_start(pi, n);
 	for (; i < n; i++)
 	{
