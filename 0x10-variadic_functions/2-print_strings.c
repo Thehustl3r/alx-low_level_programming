@@ -15,11 +15,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	va_start(pi, n);
 	for (; i < n; i++)
-	{
-		if (va_arg(pi, unsigned int) == NULL)
-			printf("(nil)");
-		if (va_arg(pi, unsigned int) == NULL)
-			printf("%d", va_arg(pi, unsigned int));
+		printf("%d", va_arg(pi, unsigned int));
 		if (separator == NULL)
 			continue;
 		if (i != (n - 1))
