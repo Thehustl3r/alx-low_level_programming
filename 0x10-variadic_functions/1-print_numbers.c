@@ -20,7 +20,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		if (separator == NULL && i != (n - 1))
 			printf(" ");
 		if (separator != NULL && i != (n - 1))
-			printf("%c", separator[0]);
+			printf("%c ", separator[0]);
 	}
 	va_end(pi);
 	printf("\n");
