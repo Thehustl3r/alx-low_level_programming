@@ -5,7 +5,7 @@
 /**
  * print_listint - the function that prints number of node in the list
  * @h: pointer to the heard
- * Return: number of nodes
+ * Return: number of node
  */
 size_t print_listint(const listint_t *h)
 {
