@@ -4,7 +4,8 @@
 /**
  * delete_nodeint_at_index - the function that return the index at index
  * @head: the pointer to head
- * @index: the index
+ * @index: the targeted index
+ * Return: 1 if it exist else -1
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
