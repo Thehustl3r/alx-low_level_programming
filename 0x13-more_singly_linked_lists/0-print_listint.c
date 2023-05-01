@@ -4,7 +4,7 @@
 
 /**
  * print_listint - the function that prints number of node in the list
- * @hi: pointer to the heard
+ * @h: pointer to the heard
  * Return: number of node
  */
 size_t print_listint(const listint_t *h)
@@ -14,7 +14,7 @@ size_t print_listint(const listint_t *h)
 	while (h != NULL)
 	{
 		printf("%d\n", h->n);
-		number++;
+		number++; 
 		h = h->next;
 	}
 	return (number);
