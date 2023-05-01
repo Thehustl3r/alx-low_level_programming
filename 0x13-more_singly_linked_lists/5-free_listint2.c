@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * free_listint2 - the function that frees the memory
+ * fre_listint2 - the function that frees the memory
  * @head: pointer to the head
  *
  * Return: Nothing
