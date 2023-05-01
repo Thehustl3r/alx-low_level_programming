@@ -2,9 +2,8 @@
 #include <stdlib.h>
 
 /**
- * fre_listint2 - the function that frees the memory
- * @head: pointer to the head
- *
+ * free_listint2 - the function tofree the space
+ * @head: the pointer to the head
  * Return: Nothing
  */
 void free_listint2(listint_t **head)
