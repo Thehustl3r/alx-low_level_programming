@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * print_listint_safe: print a list in safe way
@@ -11,15 +12,15 @@ size_t print_listint_safe(const listint_t *head)
 {
 	size_t i = 0;
 
-	if (head)
+	if (head == NULL)
 	{
-		while (head)
-		{
-			printf("[%p] %d", head, head->n);
-			head = head->next;
-			i++;
-		}
-		return (i);
+		exit (98);
 	}
-	return (NULL);
+	while (head !=  NULL)
+	{
+		printf("[] %d\n",  head->n);
+		head = head->next;
+		i++;
+	}
+	return (i);
 }
