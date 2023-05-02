@@ -6,7 +6,7 @@
  * @head: the pointer to the head
  * @idx: the index to be inserted
  * @n: the value of the node
- * Return: new node
+ * Return: nw node
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
