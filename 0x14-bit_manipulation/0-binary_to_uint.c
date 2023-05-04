@@ -38,12 +38,18 @@ unsigned int binary_to_uint(const char *b)
 		}
 		b++;
 	}
-
 	return (result);
 }
+/**
+ * _pow -  Function that returns power
+ * @a: An unsigend int a
+ * @b: An unsigned int b
+ * Return: power
+ */
 unsigned int _pow(unsigned int a, unsigned int b)
 {
 	unsigned int result = 1;
+
 	while (b--)
 		result *= a;
 	return (result);
