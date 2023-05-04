@@ -17,7 +17,7 @@ unsigned int _pow(unsigned int a, unsigned int b);
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int result = 0;
-	unsigned int len = 0, power = 0;	
+	unsigned int len = 0, power = 0;
 
 	if (b == NULL)
 		return (0);
