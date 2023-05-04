@@ -30,7 +30,7 @@ unsigned int binary_to_uint(const char *b)
 		if (*b == '0' || *b == '1')
 		{
 			if (*b == '1')
-				result = result + _pow(2, power);	
+				result = result + _pow(2, power);
 		}
 		else
 		{
