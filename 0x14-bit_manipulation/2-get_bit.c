@@ -17,7 +17,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		ne = ne / 2;
 		idx++;
 	}
-	ne = n;
+	ne = n; 
 	test = idx;
 	while (ne > 0)
 	{
