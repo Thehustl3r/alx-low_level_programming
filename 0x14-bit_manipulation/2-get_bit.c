@@ -8,7 +8,7 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	long int ne = (long int)n;
+	unsigned long int ne = n;
 	unsigned long int idx = 0, rem, test;
 
 	while (ne > 0)
@@ -17,7 +17,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		ne = ne / 2;
 		idx++;
 	}
-	ne = (long int)n;
+	ne = n;
 	test = idx;
 	while (ne > 0)
 	{
