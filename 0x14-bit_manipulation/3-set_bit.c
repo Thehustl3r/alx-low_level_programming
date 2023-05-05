@@ -4,7 +4,7 @@
  * @n: the value
  * Return: bit if its found otherwise -1
  */
-unsigned int decimal_to_binary(unsigned long int *n, unsigned int index)
+unsigned long int decimal_to_binary(unsigned long int *n, unsigned int index);
 
 /**
  * _pow -  Function that returns power
@@ -12,14 +12,14 @@ unsigned int decimal_to_binary(unsigned long int *n, unsigned int index)
  * @b: An unsigned int b
  * Return: power
  */
-unsigned int _pow(unsigned int a, unsigned int b);
+unsigned long int _pow(unsigned int a, unsigned int b);
 
 /**
- * binary_to_uint - the function that convert binary to int
+ * binary_to_decimal - the function that convert binary to int
  * @b: pointer to the string
  * Return: an Decimal number otherwise 0
  */
-unsigned int binary_to_uint(const char *b)
+unsigned long int binary_to_decimal(unsigned long int *b);
 
 /**
  * set_bit - set bit to one function
@@ -33,25 +33,17 @@ int set_bit(unsigned long int *n, unsigned int index)
 
 	if (n == NULL)
 		return (-1);
-	binary = decimal_to_binary(ne, index);
-	result = binary_to_unit(binary);
+	binary = decimal_to_binary(&ne, index);
+	result = binary_to_decimal(&binary);
 	return (result);
 }
 
 /**
- * _pow -  Function that returns power
- * @a: An unsigend int a
- * @b: An unsigned int b
- * Return: power
- */
-unsigned long int _pow(unsigned long int a, unsigned long int b);
-
-/**
- * binary_to_uint - the function that convert binary to int
+ * binary_to_decimal - the function that convert binary to int
  * @b: pointer to the string
  * Return: an Decimal number otherwise 0
  */
-unsigned long int binary_to_uint(unsigned long *b)
+unsigned long int binary_to_decimal(unsigned long int *b)
 {
 	unsigned int result = 0;
 	unsigned int len = 0, power = 0;
@@ -85,7 +77,7 @@ unsigned long int binary_to_uint(unsigned long *b)
  */
 unsigned long int decimal_to_binary(unsigned long int *n, unsigned int index)
 {
-	unsigned long int ne = n;
+	unsigned long int ne = *n;
 	unsigned long int idx = 0, rem, test, result = 0, flag = 0, i = 0;
 
 	while (ne > 0)
@@ -94,14 +86,14 @@ unsigned long int decimal_to_binary(unsigned long int *n, unsigned int index)
 		ne = ne / 2;
 		idx++;
 	}
-	ne = n;
+	ne = *n;
 	test = idx;
 	while (ne > 0)
 	{
 		rem = ne % 2;
 		if (index == (test - idx))
 		{
-			rem = 1;
+			rem = 0;
 			flag = 1;
 		}
 		ne = ne / 2;
@@ -115,4 +107,18 @@ unsigned long int decimal_to_binary(unsigned long int *n, unsigned int index)
 		return (result);
 	else
 		return (0);
+}
+/**
+ * _pow -  Function that returns power
+ * @a: An unsigend int a
+ * @b: An unsigned int b
+ * Return: power
+ */
+unsigned long int _pow(unsigned int a, unsigned int b)
+{
+	long int result = 1;
+
+	while (b--)
+		result *= a;
+	return (result);
 }
