@@ -1,13 +1,12 @@
 #include "main.h"
 #include <stdio.h>
-#include <math.h>
 /**
  * _pow -  Function that returns power
  * @a: An unsigend int a
  * @b: An unsigned int b
  * Return: power
  */
-unsigned long int _pow(unsigned long int a, unsigned long int b);
+int _pow(int a, int b);
 
 /**
  * print_binary - the function that convert binary to int
@@ -16,32 +15,55 @@ unsigned long int _pow(unsigned long int a, unsigned long int b);
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int i = 0, power = 1;
+	int ne = (int)n;
+	int i = 0, power = 1, comp = 0;
 
 	if (n == 0)
-		_putchar('0');
-	if (n == 1)
-		_putchar('1');
-	while (n > 0)
 	{
-		printf("%lu\n",n);
+		_putchar('0');
+		return;
+	}
+	if (n == 1)
+	{
+		_putchar('1');
+		return;
+	}
+
+	while (ne > 1)
+	{
+		comp = i;
 		i = 0;
-		while (power < n)
+		power = 1;
+		while (power <= ne)
 		{
-			power = pow(2,i);
+			power = _pow(2,i);
 			i++;
 		}
-		printf("%lu\n",n);
-		i--;
-		power = pow(2,i);
-/*		_putchar('1');
-		while (comp > i)
+		i = i - 2;
+		power = _pow(2,i);
+		while (comp > i + 1)
 		{
 			_putchar('0');
 			comp--;
-		}*/
-		n = n - power;
-		printf("%lu\n",n);
+		}
+		_putchar('1');
+		ne = ne - power;
+		if (ne == 1 && i == 0)
+			_putchar('1');
+		if (ne == 0 && i != 0)
+		{
+			while (i--)
+				_putchar('0');
+		}
+		if (ne == 1 && i > 0)
+		{
+			while (i > 1)
+			{
+				_putchar('0');
+				i--;
+			}
+			_putchar('1');
+		}
 	}
 }
 /**
@@ -50,9 +72,9 @@ void print_binary(unsigned long int n)
  * @b: An unsigned int b
  * Return: power
  */
-unsigned long int _pow(unsigned long int a, unsigned long int b)
+int _pow(int a, int b)
 {
-	unsigned long int result = 1;
+	int result = 1;
 
 	while (b--)
 		result *= a;
