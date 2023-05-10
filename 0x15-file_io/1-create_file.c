@@ -8,16 +8,14 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fdo, fdw, len = 0;
-	char *ch;
+	FILE *fp;
 
-	while (text_content[len] != '\0')
-		len++;
-	ch = malloc(len);
-	if (ch == NULL)
+	if (filename == NULL)
 		return (-1);
-	fdo = open(filename, O_RDWR);
-	fdw = write(fdo, ch, len);
-	close(fdo);
-	return (fdw);
+	if (text_content == NULL)
+		text_content = "";
+	fp = fopen(filename, "w");
+	fprintf(fp, "%s\n", text_content);
+	fclose(fp);
+	return (1);
 }
