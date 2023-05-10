@@ -5,7 +5,8 @@
 
 /**
  * main - Entry program
- *
+ * @argc: number of agruments
+ * @argv: arguments value
  * Return: Always 0.
  */
 int main(int argc, char **argv)
@@ -18,7 +19,7 @@ int main(int argc, char **argv)
 		perror("Usage: cp file_from file_to");
 		exit(97);
 	}
-	
+
 	if (buffer == NULL)
 		return (0);
 
@@ -30,7 +31,7 @@ int main(int argc, char **argv)
 	}
 	fdr = read(fdo, buffer, sizeof(buffer));
 	close(fdo);
-	
+
 	fdo = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fdo == -1)
 	{
