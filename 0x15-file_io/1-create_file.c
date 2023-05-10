@@ -8,14 +8,23 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	FILE *fp;
+	int fp;
+	int len = 0;
 
 	if (filename == NULL)
 		return (-1);
+
 	if (text_content == NULL)
 		text_content = "";
-	fp = fopen(filename, "w");
-	fprintf(fp, "%s\n", text_content);
-	fclose(fp);
+
+	while (text_content[len] != '\0')
+		len++;
+
+	fp = open(filename, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	if (fp == -1)
+		return (-1);
+
+	write(fp, text_content, len);
+	close(fp);
 	return (1);
 }
