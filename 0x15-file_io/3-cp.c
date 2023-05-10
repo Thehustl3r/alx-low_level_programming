@@ -12,7 +12,7 @@
 int main(int argc, char **argv)
 {
 	int fdo, fdr;
-	char buffer[1024];
+	char buffer[4096];
 
 	if (argc != 3)
 	{
