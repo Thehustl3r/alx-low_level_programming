@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 
 /**
@@ -11,8 +12,8 @@
  */
 int main(int argc, char **argv)
 {
-	int fdo, fdr;
-	char buffer[4096];
+	FILE *fp, *fp1;
+	char ch;
 
 	if (argc != 3)
 	{
@@ -20,25 +21,26 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	if (buffer == NULL)
-		return (0);
-
-	fdo = open(argv[1], O_RDONLY);
-	if (fdo == -1)
+	fp = fopen(argv[1], "r");
+	if (fp == NULL)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fdr = read(fdo, buffer, sizeof(buffer));
-	close(fdo);
 
-	fdo = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (fdo == -1)
+	fp1 = fopen(argv[2], "w");
+	if (fp1 == NULL)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	write(fdo, buffer, fdr);
-	close(fdo);
+
+	while ((ch = fgetc(fp)) != EOF)
+	{
+		fputc(ch, fp1);
+	}
+	fclose(fp1);
+	fclose(fp);
+	chmod(argv[2],0664);
 	return (1);
 }
