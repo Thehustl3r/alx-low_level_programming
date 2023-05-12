@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	while ((fdr = read(fd, buffer, sizeof(buffer))) > 0)
+	while ((fdr = read(fd, buffer, 1024)) > 0)
 	{
 		fd1w = write(fd1, buffer, fdr);
 		if (fd1w == -1)
