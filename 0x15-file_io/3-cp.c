@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 		if (fd1w == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			_close(fd);
 			_close(fd1);
 			exit(99);
 		}
@@ -52,8 +53,8 @@ int main(int argc, char **argv)
 	if (fdr == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		_close(fd1);
 		_close(fd);
+		_close(fd1);
 		exit(98);
 	}
 	fd1w = _close(fd1);
