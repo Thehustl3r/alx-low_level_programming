@@ -12,7 +12,7 @@
  */
 int main(int argc, char **argv)
 {
-	int fd, fd1, fdr;
+	int fd, fd1, fdr, fd1w;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC);
+	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd1 == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
@@ -37,7 +37,8 @@ int main(int argc, char **argv)
 
 	while ((fdr = read(fd, buffer, sizeof(buffer))) > 0)
 	{
-		if (write(fd1, buffer, fdr) == -1)
+		fd1w = write(fd1, buffer, fdr);
+		if (fd1w == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
