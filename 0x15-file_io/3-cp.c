@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 		exit(100);
 	if (flag == 0)
 		chmod(argv[2],0664);
-	return (0);
+	return (1);
 }
 
 /**
