@@ -64,6 +64,8 @@ int main(int argc, char **argv)
 	fd1w = _close(fd);
 	if (fd1w == -1)
 		exit(100);
+
+	chmod(fd1, 0664);
 	return (0);
 }
 
