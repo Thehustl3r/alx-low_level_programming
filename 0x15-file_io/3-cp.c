@@ -13,7 +13,7 @@
 int main(int argc, char **argv)
 {
 	FILE *fp, *fp1;
-	char ch;
+	char ch[1024];
 
 	if (argc != 3)
 	{
@@ -35,9 +35,9 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	while ((ch = fgetc(fp)) != EOF)
+	while (fgets(ch, sizeof(ch),fp) != NULL)
 	{
-		fputc(ch, fp1);
+		fputs(ch, fp1);
 	}
 	fclose(fp1);
 	fclose(fp);
