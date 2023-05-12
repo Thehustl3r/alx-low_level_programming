@@ -12,8 +12,8 @@
  */
 int main(int argc, char **argv)
 {
-	int fd, fd1, fdr;
-	char buffer[1024];
+	FILE *fp, *fp1;
+	char ch[1024];
 
 	if (argc != 3)
 	{
@@ -21,38 +21,30 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
+	fp = fopen(argv[1], "r");
+	if (fp == NULL)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
-	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC);
-	if (fd1 == -1)
+	fp1 = fopen(argv[2], "w");
+	if (fp1 == NULL)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
-	while ((fdr = read(fd, buffer, sizeof(buffer))) > 0)
+	while (fgets(ch, sizeof(ch),fp) != NULL)
 	{
-		if (write(fd1, buffer, fdr) == -1)
-		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+		fputs(ch, fp1);
 	}
-	if (close(fd1) == -1)
+	if (fclose(fp1) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd1);
+		dprintf(2, "Error: Can't close fd %d\n", (int)fp);
 		exit(100);
 	}
-	if (close(fd) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
+	fclose(fp);
 	chmod(argv[2],0664);
 	return (1);
 }
