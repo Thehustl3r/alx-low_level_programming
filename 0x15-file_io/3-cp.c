@@ -13,7 +13,7 @@ int _close(int fd);
  */
 int main(int argc, char **argv)
 {
-	int fd, fd1, fdr, fd1w, flag = 0;
+	int fd, fd1, fdr, fd1w;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -22,8 +22,6 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	if (access(argv[2], F_OK) == 0)
-		flag = 1;
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
@@ -31,7 +29,7 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd1 == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
@@ -66,8 +64,6 @@ int main(int argc, char **argv)
 	fd1w = _close(fd);
 	if (fd1w == -1)
 		exit(100);
-	if (flag == 0)
-		chmod(argv[2],0664);
 	return (0);
 }
 
