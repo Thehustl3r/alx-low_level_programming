@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 	if (fd1 == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		_close(fd);
 		exit(99);
 	}
 
