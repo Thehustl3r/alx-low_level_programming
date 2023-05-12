@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/uio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/stat.h>
@@ -15,7 +13,7 @@ int _close(int fd);
  */
 int main(int argc, char **argv)
 {
-	int fd, fd1, fdr, fd1w;
+	int fd, fd1, fdr, fd1w, flag = 0;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -24,6 +22,8 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
+	if (access(argv[2], F_OK) == 0)
+		flag = 1;
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
@@ -64,6 +64,8 @@ int main(int argc, char **argv)
 	fd1w = _close(fd);
 	if (fd1w == -1)
 		exit(100);
+	if (flag == 0)
+		chmod(argv[2],0664);
 	return (0);
 }
 
