@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+int _close(int fd);
 /**
  * main - Entry program
  * @argc: number of agruments
@@ -43,20 +44,45 @@ int main(int argc, char **argv)
 		if (fd1w == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			_close(fd1);
 			exit(99);
 		}
 	}
-	if (close(fd1) == -1)
+	if (fdr == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd1);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		_close(fd1);
+		_close(fd);
+		exit(98);
+	}
+	fd1w = _close(fd1);
+	if (fd1w == -1)
+	{
+		_close(fd);
 		exit(100);
 	}
-	if (close(fd) == -1)
+	fd1w = _close(fd);
+	if (fd1w == -1)
+		exit(100);
+	if (flag == 0)
+		chmod(argv[2],0664);
+	return (0);
+}
+
+/**
+ * _close - function that close the file
+ * @fd: file descriptor
+ * Return: positiver integer when there is no error
+ */
+int _close(int fd)
+{
+	int err;
+
+	err = close(fd);
+	if (err == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	if (flag == 0)
-		chmod(argv[2],0664);
-	return (1);
+	return (err);
 }
