@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+int _close(int fd);
 /**
  * main - Entry program
  * @argc: number of agruments
@@ -12,8 +13,8 @@
  */
 int main(int argc, char **argv)
 {
-	FILE *fp, *fp1;
-	char ch[1024];
+	int fd, fd1, fdr, fd1w, flag = 0;
+	char buffer[1024];
 
 	if (argc != 3)
 	{
@@ -21,30 +22,67 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
+	if (access(argv[2], F_OK) == 0)
+		flag = 1;
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
-	fp1 = fopen(argv[2], "w");
-	if (fp1 == NULL)
+	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (fd1 == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
-	while (fgets(ch, sizeof(ch),fp) != NULL)
+	while ((fdr = read(fd, buffer, sizeof(buffer))) > 0)
 	{
-		fputs(ch, fp1);
+		fd1w = write(fd1, buffer, fdr);
+		if (fd1w == -1)
+		{
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			_close(fd1);
+			exit(99);
+		}
 	}
-	if (fclose(fp1) == -1)
+	if (fdr == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", (int)fp);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		_close(fd1);
+		_close(fd);
+		exit(98);
+	}
+	fd1w = _close(fd1);
+	if (fd1w == -1)
+	{
+		_close(fd);
 		exit(100);
 	}
-	fclose(fp);
-	chmod(argv[2],0664);
-	return (1);
+	fd1w = _close(fd);
+	if (fd1w == -1)
+		exit(100);
+	if (flag == 0)
+		chmod(argv[2],0664);
+	return (0);
+}
+
+/**
+ * _close - function that close the file
+ * @fd: file descriptor
+ * Return: positiver integer when there is no error
+ */
+int _close(int fd)
+{
+	int err;
+
+	err = close(fd);
+	if (err == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+	return (err);
 }
