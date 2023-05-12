@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		perror("Usage: cp file_from file_to");
+		perror("Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 		exit(100);
 	if (flag == 0)
 		chmod(argv[2],0664);
-	return (1);
+	return (0);
 }
 
 /**
