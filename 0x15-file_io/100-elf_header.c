@@ -38,7 +38,7 @@ int main (int argc, char **argv)
 	file_size = lseek(tmp_fd, 0, SEEK_END);
 	lseek(tmp_fd, 0, SEEK_SET);
 
-	cmmd = malloc(file_size + 1);
+	cmmd = malloc(file_size);
 	if (cmmd == NULL)
 	{
 		close(tmp_fd);
