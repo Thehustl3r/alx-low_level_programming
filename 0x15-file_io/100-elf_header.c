@@ -14,7 +14,7 @@ int main (int argc, char **argv)
 	char *input = (char *)argv[1];
 	char *cmmd;
 	off_t file_size;
-	char buffer[] = " | awk 'NR==1 || NR==2 || NR==3 || NR==4 || NR==5 || NR==6 || NR==7 || NR==8 || NR==10'";
+	char buffer[] = " | awk 'NR==1 || NR==2 || NR==3 || NR==4 || NR==5 || NR==6 || NR==7 || NR==8 || NR==11'";
 	int tmp_fd, fdr;
 
 	if (argc != 2)
