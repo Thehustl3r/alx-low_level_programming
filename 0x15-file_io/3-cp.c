@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <sys/types.h>
+#include <sys/uio.h>
 
 int _close(int fd);
 /**
