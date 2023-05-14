@@ -1,88 +1,59 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include <unistd.h>
-#include <sys/stat.h>
 #include <fcntl.h>
-
-int _close(int fd);
 /**
  * main - Entry program
- * @argc: number of agruments
- * @argv: arguments value
- * Return: Always 0.
+ * @argc: the number of argument
+ * @argv: args
+ * Return: Always 0
  */
-int main(int argc, char **argv)
+int main (int argc, char **argv)
 {
-	int fd, fd1, fdr, fd1w, flag = 0;
-	char buffer[1024];
+	char *input = (char *)argv[1];
+	char *cmmd;
+	off_t file_size;
+	char buffer[] = " | awk 'NR==1 || NR==2 || NR==3 || NR==4 || NR==5 || NR==6 || NR==7 || NR==8 || NR==11' | sed 's/[[:space:]]*$//'";
+	int tmp_fd, fdr;
 
-	if (argc != 3)
+	if (argc != 2)
 	{
-		perror("Usage: cp file_from file_to");
-		exit(97);
+		perror("Usage: elf_header elf_filename\n");
+		return (0);
 	}
 
-	if (access(argv[2], F_OK) == 0)
-		flag = 1;
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+	tmp_fd = open("temp", O_WRONLY | O_CREAT | O_APPEND, 0666);
+	if (tmp_fd == -1)
+		return (1);
+	write(tmp_fd, "readelf -h ", 11);
+	write(tmp_fd, input, sizeof(input));
+	write(tmp_fd, buffer, sizeof(buffer));
+	close(tmp_fd);
 
-	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (fd1 == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
+	tmp_fd = open("temp", O_RDONLY);
+	if (tmp_fd == -1)
+		return (1);
 
-	while ((fdr = read(fd, buffer, sizeof(buffer))) > 0)
+	file_size = lseek(tmp_fd, 0, SEEK_END);
+	lseek(tmp_fd, 0, SEEK_SET);
+
+	cmmd = malloc(file_size);
+	if (cmmd == NULL)
 	{
-		fd1w = write(fd1, buffer, fdr);
-		if (fd1w == -1)
-		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
-			_close(fd1);
-			exit(99);
-		}
+		close(tmp_fd);
+		return (1);
 	}
+	fdr = read(tmp_fd, cmmd, file_size);
 	if (fdr == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		_close(fd1);
-		_close(fd);
-		exit(98);
+		close(tmp_fd);
+		free(cmmd);
 	}
-	fd1w = _close(fd1);
-	if (fd1w == -1)
-	{
-		_close(fd);
-		exit(100);
-	}
-	fd1w = _close(fd);
-	if (fd1w == -1)
-		exit(100);
-	if (flag == 0)
-		chmod(argv[2],0664);
+	cmmd[fdr] = '\0';
+	close(tmp_fd);
+	system(cmmd);
+	free(cmmd);
+	system("rm temp");
 	return (0);
-}
-
-/**
- * _close - function that close the file
- * @fd: file descriptor
- * Return: positiver integer when there is no error
- */
-int _close(int fd)
-{
-	int err;
-
-	err = close(fd);
-	if (err == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
-	return (err);
 }

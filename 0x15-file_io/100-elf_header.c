@@ -3,18 +3,19 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
 /**
  * main - Entry program
  * @argc: the number of argument
  * @argv: args
  * Return: Always 0
  */
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char *input = (char *)argv[1];
 	char *cmmd;
 	off_t file_size;
-	char buffer[] = " | awk 'NR==1 || NR==2 || NR==3 || NR==4 || NR==5 || NR==6 || NR==7 || NR==8 || NR==11' | sed 's/[[:space:]]*$//'";
+	char buffer[] = " | awk 'NR>=1 && NR<=8 || NR==11' | sed 's/[[:space:]]*$//'";
 	int tmp_fd, fdr;
 
 	if (argc != 2)
@@ -27,7 +28,7 @@ int main (int argc, char **argv)
 	if (tmp_fd == -1)
 		return (1);
 	write(tmp_fd, "readelf -h ", 11);
-	write(tmp_fd, input, sizeof(input));
+	write(tmp_fd, input, strlen(input));
 	write(tmp_fd, buffer, sizeof(buffer));
 	close(tmp_fd);
 
@@ -38,12 +39,7 @@ int main (int argc, char **argv)
 	file_size = lseek(tmp_fd, 0, SEEK_END);
 	lseek(tmp_fd, 0, SEEK_SET);
 
-	cmmd = malloc(file_size);
-	if (cmmd == NULL)
-	{
-		close(tmp_fd);
-		return (1);
-	}
+	cmmd = malloc(file_size + 1);
 	fdr = read(tmp_fd, cmmd, file_size);
 	if (fdr == -1)
 	{
