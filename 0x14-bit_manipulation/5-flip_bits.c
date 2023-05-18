@@ -6,7 +6,7 @@ unsigned long int _pow(unsigned int, unsigned int);
 /**
  * flip_bits - the function that compare by flip
  * @n: first number
- * @b: second number
+ * @m: second number
  * Return: flip number
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
@@ -44,7 +44,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	convert(arr2, m);
 	for (i = len1; i > 0; i--)
 	{
-		if (arr1 [i - 1] != arr2[i - 1])
+		if (arr1[i - 1] != arr2[i - 1])
 			flip++;
 	}
 	return (flip);
@@ -53,6 +53,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 /**
  * convert - the function that convert into binary
  * @arr: address of arr
+ * @num: the number
  * Return: Nothing
  */
 void convert(unsigned long int *arr, unsigned long int num)
@@ -89,7 +90,7 @@ void convert(unsigned long int *arr, unsigned long int num)
 			arr[j] = 1;
 		if (num == 0 && i != 0)
 		{
-			while(i--)
+			while (i--)
 				arr[j--] = 0;
 		}
 		if (num == 1 && i > 0)
