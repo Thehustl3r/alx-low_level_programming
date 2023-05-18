@@ -35,7 +35,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 long int decimal_to_binary(unsigned long int *n, unsigned int index)
 {
 	unsigned long int ne = *n, *result, dec = 0;
-	unsigned int idx = 0, i = 0, rem, test;
+	unsigned int idx = 0, i = 0, rem, test, flag = 0;
 
 	if (ne == 0)
 		idx = 1;
@@ -50,7 +50,7 @@ long int decimal_to_binary(unsigned long int *n, unsigned int index)
 		idx = index;
 	ne = *n;
 	test = idx;
-	result = malloc(sizeof(unsigned long int) * idx);
+	result = malloc(sizeof(unsigned long int) * (idx + 1));
 	if (result == NULL)
 		return (-1);
 	idx++;
@@ -67,13 +67,19 @@ long int decimal_to_binary(unsigned long int *n, unsigned int index)
 	while (test--)
 	{
 		if (i == index)
+		{
 			result[test] = 1;
+			flag = 1;
+		}
 
 		if (result[test] == 1)
 			dec = dec + _pow(2, i);
 		i++;
 	}
-	return (dec);
+	if (flag)
+		return (dec);
+	else
+		return (-1);
 }
 /**
  * _pow -  Function that returns power
