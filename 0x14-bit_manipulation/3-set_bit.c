@@ -37,6 +37,8 @@ long int decimal_to_binary(unsigned long int *n, unsigned int index)
 	unsigned long int ne = *n, *result, dec = 0;
 	unsigned int idx = 0, i = 0, rem, test, flag = 0;
 
+	if (index > 1024)
+		reurn (-1);
 	if (ne == 0)
 		idx = 1;
 	while (ne > 0)
