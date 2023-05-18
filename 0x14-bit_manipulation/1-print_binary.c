@@ -23,7 +23,6 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	printf("%ld\n", n);
 	if (n == 1)
 	{
 		_putchar('1');
