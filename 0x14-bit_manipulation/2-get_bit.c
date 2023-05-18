@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * get_bit - function that returns the bit at index
@@ -27,5 +28,5 @@ int get_bit(unsigned long int n, unsigned int index)
 		ne = ne / 2;
 		idx--;
 	}
-	return (-1);
+	return (0);
 }
