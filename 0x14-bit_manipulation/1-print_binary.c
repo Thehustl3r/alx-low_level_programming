@@ -23,6 +23,7 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
+	printf("%ld\n", n);
 	if (n == 1)
 	{
 		_putchar('1');
@@ -36,11 +37,11 @@ void print_binary(unsigned long int n)
 		power = 1;
 		while (power <= ne)
 		{
-			power = _pow(2,i);
+			power = _pow(2, i);
 			i++;
 		}
 		i = i - 2;
-		power = _pow(2,i);
+		power = _pow(2, i);
 		while (comp > i + 1)
 		{
 			_putchar('0');

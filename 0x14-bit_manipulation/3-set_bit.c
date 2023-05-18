@@ -1,24 +1,6 @@
 #include "main.h"
-/**
- * decimal_to_binary - function that returns the bit at index
- * @n: the value
- * Return: bit if its found otherwise -1
- */
 unsigned long int decimal_to_binary(unsigned long int *n, unsigned int index);
-
-/**
- * _pow -  Function that returns power
- * @a: An unsigend int a
- * @b: An unsigned int b
- * Return: power
- */
 unsigned long int _pow(unsigned int a, unsigned int b);
-
-/**
- * binary_to_decimal - the function that convert binary to int
- * @b: pointer to the string
- * Return: an Decimal number otherwise 0
- */
 unsigned long int binary_to_decimal(unsigned long int *b);
 
 /**
