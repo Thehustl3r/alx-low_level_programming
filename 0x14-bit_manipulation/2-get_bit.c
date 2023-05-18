@@ -12,7 +12,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned long int ne = n;
 	unsigned long int idx = 0, rem, test;
 
-	if(index > 1024)
+	if (index > 1024)
 		return (-1);
 	while (ne > 0)
 	{
