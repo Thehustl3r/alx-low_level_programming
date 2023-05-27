@@ -1,12 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-/**
- * _pow -  Function that returns power
- * @a: An unsigend int a
- * @b: An unsigned int b
- * Return: power
- */
-long int _pow(int a, int b);
+unsigned long int _pow(unsigned long int a, unsigned long int b);
 
 /**
  * print_binary - the function that convert binary to int
@@ -15,9 +9,22 @@ long int _pow(int a, int b);
  */
 void print_binary(unsigned long int n)
 {
-	long int ne = (long int)n;
-	long int i = 0, power = 1, comp = 0;
+	unsigned long int  power = 1;
+	unsigned long int test = 1UL << (sizeof(unsigned long int) * 8 - 1);
+	int i = 0, comp = 0;
 
+	if (n == ULONG_MAX)
+	{
+		while (test)
+		{
+			if (n & test)
+				_putchar('1');
+			else 
+				_putchar('0');
+			test >>= 1;
+		}
+		return;
+	}
 	if (n == 0)
 	{
 		_putchar('0');
@@ -29,14 +36,14 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	while (ne > 1)
+	while (n > 1)
 	{
 		comp = i;
 		i = 0;
-		power = 1;
-		while (power <= ne)
+		power = _pow(2,4);
+		while (power <= n)
 		{
-			power = _pow(2, i);
+			power = _pow(2, i) + 1;
 			i++;
 		}
 		i = i - 2;
@@ -47,15 +54,18 @@ void print_binary(unsigned long int n)
 			comp--;
 		}
 		_putchar('1');
-		ne = ne - power;
-		if (ne == 1 && i == 0)
+		if (n > power)
+			n = n - power;
+		else
+			break;
+		if (n == 1 && i == 0)
 			_putchar('1');
-		if (ne == 0 && i != 0)
+		if (n == 0 && i != 0)
 		{
 			while (i--)
 				_putchar('0');
 		}
-		if (ne == 1 && i > 0)
+		if (n == 1 && i > 0)
 		{
 			while (i > 1)
 			{
@@ -72,9 +82,9 @@ void print_binary(unsigned long int n)
  * @b: An unsigned int b
  * Return: power
  */
-long int _pow(int a, int b)
+unsigned long int _pow(unsigned long int a, unsigned long int b)
 {
-	long int result = 1;
+	unsigned long int result = 1;
 
 	while (b--)
 		result *= a;
