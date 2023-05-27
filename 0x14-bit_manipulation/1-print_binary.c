@@ -17,6 +17,20 @@ void print_binary(unsigned long int n)
 {
 	long int ne = (long int)n;
 	long int i = 0, power = 1, comp = 0;
+	unsigned long int test = 1UL << (sizeof(unsigned long int) * 8 - 1);
+
+	if (n == ULONG_MAX)
+	{
+		while (test)
+		{
+			if (n & test)
+				_putchar('1');
+			else
+				_putchar('0');
+			test >>= 1;
+		}
+		return;
+	}
 
 	if (ne == 0)
 	{
@@ -36,11 +50,11 @@ void print_binary(unsigned long int n)
 		power = 1;
 		while (power <= ne)
 		{
-			power = _pow(2,i);
+			power = _pow(2, i);
 			i++;
 		}
 		i = i - 2;
-		power = _pow(2,i);
+		power = _pow(2, i);
 		while (comp > i + 1)
 		{
 			_putchar('0');
