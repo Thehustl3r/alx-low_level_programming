@@ -11,9 +11,19 @@ unsigned long int _pow(unsigned int, unsigned int);
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
+	unsigned long int result = n ^ m;
 	unsigned long int tmp, *arr1, *arr2;
 	unsigned int flip = 0, len1 = 0, i = 0;
 
+	if (n == ULONG_MAX || n == (ULONG_MAX - 1))
+	{
+		while (result)
+		{
+			flip += result & 1;
+			result >>= 1;
+		}
+		return (flip);
+	}
 	if (n == m)
 		return (0);
 
