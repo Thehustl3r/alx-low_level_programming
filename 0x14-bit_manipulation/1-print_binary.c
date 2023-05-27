@@ -52,7 +52,7 @@ void print_binary(unsigned long int n)
 			_putchar('1');
 		if (ne == 0 && i != 0)
 		{
-			while (i--)s
+			while (i--)
 				_putchar('0');
 		}
 		if (ne == 1 && i > 0)
