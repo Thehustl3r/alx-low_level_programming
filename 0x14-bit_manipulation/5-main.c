@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <limits.h>
 
 /**
  * main - check the code
@@ -8,9 +9,9 @@
  */
 int main(void)
 {
-    int n;
+    unsigned int n;
 
-    n = get_bit(2048, 20);
-    printf("%d\n", n);
+    n = flip_bits(ULONG_MAX, 0);
+    printf("%u\n", n);
     return (0);
 }
