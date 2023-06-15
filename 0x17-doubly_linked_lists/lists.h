@@ -2,12 +2,18 @@
 #define DOUBLE_H
 #include <stdio.h>
 #include <stdlib.h>
+/**
+ * struct node - the structure that hold a double linked list
+ * @n: the integer n
+ * @next: the address of next pointer
+ * @prev: the address to prev pointer
+ */
 typedef struct node
 {
 	int n;
 	struct node *next;
 	struct node *prev;
-}dlistint_t;
+} dlistint_t;
 
 size_t print_dlistint(const dlistint_t *h);
 size_t dlistint_len(const dlistint_t *h);
