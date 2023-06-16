@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- * add_dnodeint - the function that adds the ellement to the start of the node
+ * add_dnodeint_end - the function that adds the ellement to the start of the node
  * @head: the list
  * @n: number to be insterted
  * Return: the new struct
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	dlistint_t *new_head;
 
@@ -16,10 +16,13 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	if (new_head == NULL)
 		return (NULL);
 	new_head->n = n;
-	if (*head)
-		(*head)->prev = new_head;
-	new_head->next = *head;
-	new_head->prev = NULL;
+	new_head->next = NULL;
+
+	while (*head->next)
+		head = head->next;
+
+	(*head)->next = new_head;
+	new_head->prev = (*head)->prev->preveie;
 
 	(*head) = new_head;
 	return (*head);
