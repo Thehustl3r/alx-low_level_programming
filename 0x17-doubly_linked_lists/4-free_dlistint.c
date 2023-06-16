@@ -3,7 +3,7 @@
 /**
  * free_dlistint - function that frees the list
  * @head: the list
- * Return: Nothing 
+ * Return: Nothing
  */
 void free_dlistint(dlistint_t *head)
 {
