@@ -10,7 +10,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	int index;
-	hash_node_t *new_node = NULL, tmp_node = NULL;
+	hash_node_t *new_node = NULL, *tmp_node = NULL;
 	char *key_copy = NULL, *value_copy = NULL;
 
 	if (key == NULL || ht == NULL || strcmp(key, "") == 0)
