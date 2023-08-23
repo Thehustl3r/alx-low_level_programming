@@ -1,0 +1,28 @@
+# Makefile for building the 'school' executabl
+
+# Rule to build the executabledd
+
+CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+# Compilation command
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+# Clean rule to remove the executable
+clean:
+	$(RM) $(OBJ) *~
+
+oclean: $(OBJ)
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
